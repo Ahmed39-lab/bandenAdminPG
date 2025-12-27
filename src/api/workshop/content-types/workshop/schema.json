@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workshops",
+  "info": {
+    "singularName": "workshop",
+    "pluralName": "workshops",
+    "displayName": "Workshop"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "workshop_status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
+    },
+    "workshop_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workshop-service.workshop-service",
+      "mappedBy": "workshop"
+    }
+  }
+}
