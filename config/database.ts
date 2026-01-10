@@ -23,39 +23,39 @@ export default ({ env }) => {
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
     postgres: {
-      //local pc setting
-      connection: {
-        connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          key: env('DATABASE_SSL_KEY', undefined),
-          cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-        },
-        schema: env('DATABASE_SCHEMA', 'public'),
-      },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
-    },
+      // local pc setting
+    //   connection: {
+    //     connectionString: env('DATABASE_URL'),
+    //     host: env('DATABASE_HOST', 'localhost'),
+    //     port: env.int('DATABASE_PORT', 5432),
+    //     database: env('DATABASE_NAME', 'strapi'),
+    //     user: env('DATABASE_USERNAME', 'strapi'),
+    //     password: env('DATABASE_PASSWORD', 'strapi'),
+    //     ssl: env.bool('DATABASE_SSL', false) && {
+    //       key: env('DATABASE_SSL_KEY', undefined),
+    //       cert: env('DATABASE_SSL_CERT', undefined),
+    //       ca: env('DATABASE_SSL_CA', undefined),
+    //       capath: env('DATABASE_SSL_CAPATH', undefined),
+    //       cipher: env('DATABASE_SSL_CIPHER', undefined),
+    //       rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+    //     },
+    //     schema: env('DATABASE_SCHEMA', 'public'),
+    //   },
+    //   pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+    // },
     // live services
-  //   connection: {
-  //     host: process.env.DATABASE_HOST,
-  //     port: Number(process.env.DATABASE_PORT),
-  //     database: process.env.DATABASE_NAME,
-  //     user: process.env.DATABASE_USERNAME,
-  //     password: process.env.DATABASE_PASSWORD,
-  //     ssl: {
-  //       rejectUnauthorized: false,
-  //     },
-  //   },
-  //   pool: { min: 0, max: 5 },
-  // },
+    connection: {
+      host: process.env.DATABASE_HOST,
+      port: Number(process.env.DATABASE_PORT),
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
+    pool: { min: 0, max: 5 },
+  },
     sqlite: {
       connection: {
         filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
