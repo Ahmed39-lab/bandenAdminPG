@@ -47,15 +47,16 @@ export default ({ env }) => {
   connection: {
     client: 'postgres',
     connection: {
-      connectionString: env('DATABASE_URL'),
-      ssl: { rejectUnauthorized: false },
-    },
-    pool: {
-      min: 0,
-      max: 5,
+      host: env('DATABASE_HOST'),
+      port: env.int('DATABASE_PORT'),
+      database: env('DATABASE_NAME'),
+      user: env('DATABASE_USERNAME'),
+      password: env('DATABASE_PASSWORD'),
+      ssl: env.bool('DATABASE_SSL', false),
     },
   },
-},
+    pool: { min: 0, max: 5 },
+  },
     sqlite: {
       connection: {
         filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
