@@ -30,11 +30,11 @@
     "stock": {
       "type": "integer"
     },
-    "product_id": {
+    "product": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product.product",
-      "inversedBy": "variation_id"
+      "inversedBy": "variations"
     }
   }
 }

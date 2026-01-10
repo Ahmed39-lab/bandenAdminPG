@@ -21,17 +21,6 @@
     "description": {
       "type": "text"
     },
-    "parent": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
-    },
-    "product_ids": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "category_id"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -41,6 +30,12 @@
         "videos",
         "audios"
       ]
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "category"
     }
   }
 }
