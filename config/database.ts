@@ -12,12 +12,8 @@ export default ({ env }) => {
         user: env('PGUSER'),
         password: env('PGPASSWORD'),
         ssl: { rejectUnauthorized: false },
-        schema: 'public',
       },
-      pool: {
-        min: 0,
-        max: 5,
-      },
+      pool: { min: 0, max: 5 },
     },
 
     sqlite: {
@@ -37,10 +33,7 @@ export default ({ env }) => {
     connection: {
       client,
       ...connections[client],
-      acquireConnectionTimeout: env.int(
-        'DATABASE_CONNECTION_TIMEOUT',
-        60000
-      ),
+      acquireConnectionTimeout: 60000,
     },
   };
 };
