@@ -6,12 +6,14 @@ export default ({ env }) => {
   const connections = {
     postgres: {
       connection: {
-        host: env('PGHOST'),
-        port: env.int('PGPORT', 5432),
-        database: env('PGDATABASE'),
-        user: env('PGUSER'),
-        password: env('PGPASSWORD'),
-        ssl: { rejectUnauthorized: false },
+        host: env('DATABASE_HOST'),           // Railway host
+        port: env.int('DATABASE_PORT', 5432), // Railway port
+        database: env('DATABASE_NAME'),       // Railway database name
+        user: env('DATABASE_USERNAME'),       // Railway user
+        password: env('DATABASE_PASSWORD'),   // Railway password
+        ssl: env.bool('DATABASE_SSL', false)
+          ? { rejectUnauthorized: false }     // SSL override if true
+          : false,
       },
       pool: { min: 0, max: 5 },
     },
