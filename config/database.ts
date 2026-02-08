@@ -6,7 +6,7 @@ export default ({ env }) => {
   const connections = {
     postgres: {
       connection: {
-        host: env('DATABASE_HOST'),           // Railway host
+        host: env('DATABASE_HOST'),           // Railway host information is that
         port: env.int('DATABASE_PORT', 5432), // Railway port
         database: env('DATABASE_NAME'),       // Railway database name
         user: env('DATABASE_USERNAME'),       // Railway user
