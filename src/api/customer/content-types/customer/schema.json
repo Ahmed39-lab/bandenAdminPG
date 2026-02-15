@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "email"
-    },
     "first_name": {
       "type": "string"
     },
@@ -37,6 +34,11 @@
       "relation": "manyToOne",
       "target": "api::review.review",
       "inversedBy": "customers"
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
     }
   }
 }
