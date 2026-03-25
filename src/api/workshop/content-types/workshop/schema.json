@@ -20,6 +20,15 @@
     "contact": {
       "type": "string"
     },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
     "workshop_status": {
       "type": "enumeration",
       "enum": [
@@ -31,6 +40,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::workshop-service.workshop-service",
+      "mappedBy": "workshop"
+    },
+    "workshop_availabilities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workshop-availability.workshop-availability",
+      "mappedBy": "workshop"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
       "mappedBy": "workshop"
     }
   }

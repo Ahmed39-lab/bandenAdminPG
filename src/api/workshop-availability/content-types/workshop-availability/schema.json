@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workshop_availabilities",
+  "info": {
+    "singularName": "workshop-availability",
+    "pluralName": "workshop-availabilities",
+    "displayName": "workshop_availability"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "workshop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workshop.workshop",
+      "inversedBy": "workshop_availabilities"
+    },
+    "date": {
+      "type": "date"
+    },
+    "start_time": {
+      "type": "time"
+    },
+    "end_time": {
+      "type": "time"
+    }
+  }
+}

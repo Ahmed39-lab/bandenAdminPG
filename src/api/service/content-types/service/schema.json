@@ -22,6 +22,12 @@
       "relation": "oneToMany",
       "target": "api::workshop-service.workshop-service",
       "mappedBy": "service"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "service"
     }
   }
 }
